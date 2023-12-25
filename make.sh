@@ -52,7 +52,7 @@ if [ "$1" != "" ]; then
 	echo "VU_MULTIBOOT=1" >> config
 	echo "BOXTYPE=$1" >> config
 	case $1 in
-		ufs910|ufs912|ufs913|ufs922|tf7700|fortis_hdbox|octagon1008|atevio7500|ipbox55|ipbox99|ipbox9900|cuberevo|cuberevo_mini|cuberevo_mini2|cuberevo_250hd|cuberevo_2000hd|cuberevo_3000hd|spark|spark7162)
+		ufs910|ufs912|ufs913|ufs922|hl101|tf7700|fortis_hdbox|octagon1008|atevio7500|ipbox55|ipbox99|ipbox9900|cuberevo|cuberevo_mini|cuberevo_mini2|cuberevo_250hd|cuberevo_2000hd|cuberevo_3000hd|spark|spark7162)
 			echo "BOXARCH=sh4" >> config
 			make printenv
 			exit
@@ -101,6 +101,9 @@ case $1 in
 		echo "   27)  Spark"
 		echo "   28)  Spark7162"
 		echo
+  		echo "  Globo"
+		echo "   29)  HL101"
+  		echo
 		echo "  arm-based receivers"
 		echo "  VU+"
 		echo "   41)  VU+ Solo 4K       42)  VU+ Uno 4K          43)  VU+ Ultimo 4K"
@@ -144,6 +147,7 @@ case "$REPLY" in
 
 	27) BOXARCH="sh4";BOXTYPE="spark";;
 	28) BOXARCH="sh4";BOXTYPE="spark7162";;
+ 	29) BOXARCH="sh4";BOXTYPE="hl101";;
 
 	41) BOXARCH="arm";BOXTYPE="vusolo4k";;
 	42) BOXARCH="arm";BOXTYPE="vuuno4k";;
@@ -194,7 +198,7 @@ fi
 ##############################################
 
 if [ "$BOXARCH" == "sh4" ]; then
-	LOCAL_FFMPEG_BOXTYPE_LIST='octagon1008 fortis_hdbox cuberevo cuberevo_3000hd cuberevo_mini cuberevo_mini2 ufs912 ufs913 spark atevio7500'
+	LOCAL_FFMPEG_BOXTYPE_LIST='octagon1008 fortis_hdbox cuberevo cuberevo_3000hd cuberevo_mini cuberevo_mini2 ufs912 ufs913 hl101 spark atevio7500'
 	for i in $LOCAL_FFMPEG_BOXTYPE_LIST; do
 		if [ "$BOXTYPE" == "$i" ]; then
 			LOCAL_FFMPEG_BOXTYPE_LIST=$BOXTYPE
