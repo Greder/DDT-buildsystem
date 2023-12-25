@@ -24,7 +24,7 @@ include make/linux-kernel-env.mk
 # default platform...
 MAKEFLAGS            += --no-print-directory
 GITHUB               ?= https://github.com
-GIT_NAME             ?= Duckbox-Developers
+GIT_NAME             ?= ddt
 GIT_NAME_DRIVER      ?= Duckbox-Developers
 GIT_NAME_TOOLS       ?= Duckbox-Developers
 GIT_NAME_FLASH       ?= Duckbox-Developers
